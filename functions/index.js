@@ -20,6 +20,9 @@ exports.screenShot = functions.https.onRequest(async (request, response) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(request.body.url);
+  await page.evaluate(() => document.querySelectorAll("iframe").forEach((pub)=>{
+    pub.style.display = "none";
+  }))
   const imgBuffer = await page.screenshot({ fullPage: true });
   response.set("Content-Type", "image/png");
   response.status(200).send(imgBuffer);
