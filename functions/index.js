@@ -15,7 +15,7 @@ exports.screenShotElement = functions.https.onRequest(
     response.status(200).send(elementBuffer);
   }
 );
-
+// function
 exports.screenShot = functions.https.onRequest(async (request, response) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
