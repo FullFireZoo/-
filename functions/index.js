@@ -20,7 +20,10 @@ exports.screenShotElement = functions.https.onRequest(
 exports.screenShot = functions.https.onRequest(async (request, response) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(request.body.url);
+  if(request.body.html){
+    await page.setContent(request.body.html)
+  }else{await page.goto(request.body.url)}
+ 
   await page.evaluate(() => document.querySelectorAll("iframe").forEach((pub)=> {
       pub.style.display = "none";
   }));
@@ -32,7 +35,9 @@ exports.screenShot = functions.https.onRequest(async (request, response) => {
 exports.toPdf = functions.https.onRequest(async (request, response) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(request.body.url);
+  if(request.body.html){
+    await page.setContent(request.body.html)
+  }else{await page.goto(request.body.url)}
   const pdfBuffer = await page.pdf({ printBackground: true });
   response.set("Content-Type", "application/pdf");
   response.status(200).send(pdfBuffer);
