@@ -1,0 +1,15 @@
+{
+  "type": "service_account",
+  "project_id": "screencloud-b1e0a",
+  "private_key_id": "32f406cbd35402c79f95fdcc55dab49edd2667a8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHnXSzRT5mhIkp\n/kAEaqccJCojbg4E5463DMQnJHOGDjAH0fQKwPevpq0RlaLA1MhIUmFzlKLLcNqR\nW1clLwlspZ0g+LhDQQ9Z1D0klcAo+7FjWjS3MnrzjNxQlN0YUf0m5FDE8IXtw4ar\nDXxDvyn2/3TRC1He1SiR+lxexAnPfGtRpV8QXqBZWJojKQJvxY1qyVNPtA6WDQ54\nX7UP3f7DvWnCvqGkqzdcyw31+w53Un/tooVj/i6Cgvj7TYQqvI5K49We26TldYrw\nmKaliAeGQ2LP1t5Dg1yz1BJ+ddXkR3D0a6I3m8dNLZmmP6OWo/mIYeFwtDfgQXUB\nsKWcoS81AgMBAAECggEADg4VpfvFqYVCfSz0R/tUeeRH/UemAA1n3JavBwyHf9Rm\n6F4Nn2Y36mvDet384DP7SDBYwUEhd06ibSKvz6Pwt3Av0J8CpmWh1ZLenUFYDuqt\n8k9rL80DoDt2VcwthyVavE7OKxe+bl/ajxe7fK+snkIdcQypfpWmriShNWD7Sdsa\nbo7mKsC8YnNmF41Ugyg9DUqIC+mtuln6pYz1BEorO4uK/jOj9o9DWOJqzXffsJ7B\ntpBBxCS3l0TigbROWu274pslW3xWBB8u8m4s+eyk5vmk+IjYE8KRTsDrp3RXhj95\nTleBQVZ6aJDBkcLHsfhgjTURyMVaT1XKfP+STJXDvwKBgQDzAC7NeyhQxdF3UB0j\n7JRjGCl0vH/9iA8UvKZYkB+5r93FbRN3ahIi3FJWTuCHcgy83FQU0gk6jVhVDFY0\nFyWa9U+0ikQ6dFb2/Q7y9YOQMwYqt2wSKxfC6PR/Uxwi/BW5KB5PPWyOBLOXZXUT\nW3WmkHys71jTKLjfVI1HexYq/wKBgQDSSx7Rn3sYVpkbud0udLnu2XUa/i3KNV6W\n3wB6v4gmhoenH2eHa27lD4FOVeAEkOlt5GYxhpW9rIU4MQzHenek18Efk0NeGbtM\nKEo9taRHMSVPuAIFrNBmNWCJd74rXvig+rgj6dx3OJnYZP+hP7LGYll8aakc1e3z\nlVXHshXpywKBgAX8+CpKIakz5sCI8d7jwphajRL6XjESPETnjTXbf1ylD9MAqB0m\nOQIw6bqEwRW1Ysj4qP3GW0HdH9MgtbMc6ulRqEArtBi4qzf07nxgPni8OSeuU3Rz\nKWe9M+E7XBMkoShp661KNzWcugw+DM+ITnLnVpswXsD9XOjr/XtIdjhjAoGBAJ9O\nVw934DlkyOIPIDZkKMJ/K86CBVAss/ZZAzT5yXtd6H+7M6OLyFtwLoWYWnc7DAq6\nvowAJ4mjmtwhlEu9Q8u1wlBYL+2mUpPz5aHv634fBePpQmboLotvHi2lb4PNk03o\nAPz72Y7bavhaMqkF5zmQIbg1Fu6IRZWEaJI6H42XAoGBAPB14lrVcPDXIiUqwcTs\nEde21nChrCMQIYtQNM8bx3zzSCxVxi2NK0nhCel2R2UVfp5HFODhOlzkuahztOpG\nY+WL4WGxEIKp36v3bE9mxwWZatn0LgiVApn09sha+7sEbzPGfVDMcM83Uu1RuaW/\n5BQgAK3k8SYiM0J12U239jLM\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-753ok@screencloud-b1e0a.iam.gserviceaccount.com",
+  "client_id": "100661126603042091087",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-753ok%40screencloud-b1e0a.iam.gserviceaccount.com",
+  "functions": {
+    "source": "functions"
+  }
+}
