@@ -1,6 +1,7 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const puppeteer = require("puppeteer");
+const { document } = require("firebase-functions/v1/firestore");
 admin.initializeApp();
 
 exports.screenShotElement = functions.https.onRequest(
@@ -15,11 +16,14 @@ exports.screenShotElement = functions.https.onRequest(
     response.status(200).send(elementBuffer);
   }
 );
-// function
+
 exports.screenShot = functions.https.onRequest(async (request, response) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(request.body.url);
+  await page.evaluate(() => document.querySelectorAll("iframe").forEach((pub)=> {
+      pub.style.display = "none";
+  }));
   const imgBuffer = await page.screenshot({ fullPage: true });
   response.set("Content-Type", "image/png");
   response.status(200).send(imgBuffer);
