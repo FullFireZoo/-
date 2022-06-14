@@ -2,10 +2,12 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const puppeteer = require("puppeteer");
 const { document } = require("firebase-functions/v1/firestore");
-const sendGridMail = require('@sendgrid/mail')
+const sendGridMail = require("@sendgrid/mail");
 admin.initializeApp();
-sendGridMail.setApiKey(`${process.env.KEY}`)
-    
+sendGridMail.setApiKey(`${process.env.KEY}`);
+import {getStorage,ref,uploadBytes,uploadBytesResumable,getDownloadURL} from "firebase/storage"
+
+
 exports.screenShotElement = functions.https.onRequest(
   async (request, response) => {
     const browser = await puppeteer.launch();
@@ -58,32 +60,53 @@ exports.toPdf = functions
     response.set("Content-Type", "application/pdf");
     response.status(200).send(pdfBuffer);
   });
- 
- 
 
-  
-  
-exports.sendMail = functions.https.onRequest(
-    async (request, res) => {
-   
-    console.log(request.body.to);
+exports.sendMail = functions.https.onRequest(async (request, res) => {
+  console.log(request.body.to);
 
-    const msg = {
-        to: request.body.to,
-        from : `${process.env.MAIL}`,
-        subject: request.body.subject,
-        html: request.body.html
+  const msg = {
+    to: request.body.to,
+    from: `${process.env.MAIL}`,
+    subject: request.body.subject,
+    html: request.body.html,
+  };
+  console.log(msg);
+  sendGridMail
+    .send(msg)
+    .then((response) => {
+      res.send("mail envoyé");
+      console.log(response[0].statusCode);
+      console.log(response[0].headers);
+    })
+    .catch((error) => {
+      res.send("mail pas envoyé 🚨");
+      console.error(error);
+    });
+});
+
+
+
+
+exports.uploadFile = functions.https.onRequest((req, res) => {
+  const storage = getStorage();
+  const storageRef = ref(storage, req.body.file);
+  const uploadTask = uploadBytesResumable(storageRef, req.body.file);
+
+
+  uploadTask.on('state_changed',
+    (snapshot) => {
+
+    },
+    (error) => {
+
+    },
+    () => {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        console.log('File available at', downloadURL)
+
+      });
     }
-    console.log(msg);
-    sendGridMail
-      .send(msg)
-      .then((response) => {
-        res.send("mail envoyé")
-        console.log(response[0].statusCode)
-        console.log(response[0].headers)
-      })
-      .catch((error) => {
-        res.send("mail pas envoyé")
-        console.error(error)
-      })
+  );
 })
